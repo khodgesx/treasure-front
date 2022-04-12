@@ -31,9 +31,13 @@ const SingleItem = (props)=>{
     return(
         
         <div id="single-item">
-            <button onClick={setShow}>Click to see more about: {props.item.title}</button>
-            
-            {/* <img src={props.item.img}></img> */}
+            <div id="single-title">
+                <h2>{props.item.title}</h2>
+                {/* <button onClick={setShow}>Click to see more</button> */}
+                <h3>Click photo to see more</h3>
+            </div>
+            <img id="item-img"onClick={setShow}src='https://i.imgur.com/3cHAFsx.jpg'></img>
+
             <Modal show={show} onHide={toggleShow}>
                 <Modal.Header closeButton>
                     <Modal.Title>{props.item.title}</Modal.Title>
@@ -45,9 +49,13 @@ const SingleItem = (props)=>{
                     <h3>Location: {props.item.location}</h3>
                     <h3>Available: { props.item.available === true ? 'Yes' :'No' }</h3>
                 </div>
-
             </Modal>
-            <button onClick={toggleEdit}>Edit</button>
+            <div id="buttons">
+            <button id="edit-button" onClick={toggleEdit}>Edit</button>
+            <button id="delete"onClick={()=>{props.deleteItem(props.item.id)}}>Delete</button>
+            </div>
+            
+
             <Modal show={editShow} onHide={toggleEdit}>
                 <Modal.Header>
                     <Modal.Title>Edit Item</Modal.Title>
@@ -56,7 +64,8 @@ const SingleItem = (props)=>{
                     <EditItem toggleEdit={toggleEdit} item={props.item}editItem={props.editItem}></EditItem>
                 </Modal.Body>
             </Modal>
-         
+
+           
 
         </div>
     )

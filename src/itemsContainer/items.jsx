@@ -112,8 +112,8 @@ return(
             return(
                 <div id="item-map" key={`item-${item.id}`}>
 
-              <SingleItem editItem={editItem} item={item}></SingleItem>
-              <button id="delete"onClick={()=>{deleteItem(item.id)}}>Delete</button>
+              <SingleItem deleteItem={deleteItem}editItem={editItem} item={item}></SingleItem>
+              
               </div>
             // <h1 key={`item-${item.id}`}>
             //     <Link to={`/items/${item.id}`}>{item.title}</Link>
