@@ -60,24 +60,25 @@ const Items =()=>{
         window.location.reload()
     }
 
-    // const editItem = async(idToEdit, itemtoEdit)=>{
-    //     try{
-    //         const editResponse = await fetch(`http://localhost:8000/api/items/${idToEdit}`,{
-    //             method:"PUT",
-    //             body:JSON.stringify(itemtoEdit),
-    //             headers:{
-    //                 "Content-Type":"application/json"
-    //             }
-    //         })
-    //         const parsedEdit = await editResponse.json()
-    //         if(parsedEdit.status === 204){
-    //             const newArray = items.map(item => item.id === idToEdit ? {...item, itemToEdit} : item)
-    //             setItems(newArray)
-    //         }
-    //     }catch(err){
-    //         console.log(err)
-    //     }
-    // }
+    const editItem = async(idToEdit, itemToEdit)=>{
+        try{
+            const editResponse = await fetch(`http://localhost:8000/api/items/${idToEdit}`,{
+                method:"PUT",
+                body:JSON.stringify(itemToEdit),
+                headers:{
+                    "Content-Type":"application/json"
+                }
+            })
+            const parsedEdit = await editResponse.json()
+            
+            if(parsedEdit.status === 204){
+                const newArray = items.map(item => item.id === idToEdit ? {...item, itemToEdit} : item)
+                setItems(newArray)
+            }
+        }catch(err){
+            console.log(err)
+        }
+    }
     const deleteItem = async(idToDelete)=>{
         try{
             const deleteResponse = await fetch(`http://localhost:8000/api/items/${idToDelete}`,{
@@ -111,7 +112,7 @@ return(
             return(
                 <div key={`item-${item.id}`}>
 
-              <SingleItem  item={item}></SingleItem>
+              <SingleItem editItem={editItem} item={item}></SingleItem>
               <button id="delete"onClick={()=>{deleteItem(item.id)}}>Delete</button>
               </div>
             // <h1 key={`item-${item.id}`}>
