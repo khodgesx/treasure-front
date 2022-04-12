@@ -67,47 +67,11 @@ const Items =()=>{
         })
         .catch(err => console.log(err))
         toggleShow()
+        //need to find a better fix than just refreshing the page...
         window.location.reload()
         
     }
-    // const createNew = async (newItem)=>{
-    //     try{
-    //         // if(image){
-    //         //     const data = new FormData()
-    //         //     data.append('file', image)
-    //         //     data.append('upload_preset', 'items')
-
-    //         //     const imgUpload = await fetch('https://api.cloudinary.com/v1_1/dmc4kghoi/image/upload', {
-    //         //         method: "POST",
-    //         //         body: data
-    //         //     })
-    //         //     const parsedImg = await imgUpload.json()
-    //         //     newItem.img = await parsedImg.url
-    //         // }else{
-    //         //     newItem.img = 'https://i.imgur.com/3cHAFsx.jpg'
-    //         // }
-    //         const createResponse = await fetch(`${apiUrl}/api/items/`, {
-    //             method: "POST",
-    //             body: JSON.stringify(newItem),
-    //             headers:{
-    //                 "Content-Type": "application/json",
-    //                 "Accept":"application/json"
-    //             }
-    //         })
-    //         console.log(createResponse)
-    //         console.log('new item:', newItem)
-    //         const parsedCreate = await createResponse.json()
-    //         console.log('parsed response', parsedCreate)
-            
-    //         if(parsedCreate.status === 200){
-    //             console.log(parsedCreate)
-    //         }
-            
-    //     }catch(err){
-    //         console.log(err)
-    //     }
-    //     window.location.reload()
-    // }
+ 
 
     // const editItem = async(idToEdit, itemToEdit)=>{
     //     try{
