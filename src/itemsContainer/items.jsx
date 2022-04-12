@@ -110,7 +110,7 @@ return(
         </Modal>
         { items.map((item)=>{
             return(
-                <div key={`item-${item.id}`}>
+                <div id="item-map" key={`item-${item.id}`}>
 
               <SingleItem editItem={editItem} item={item}></SingleItem>
               <button id="delete"onClick={()=>{deleteItem(item.id)}}>Delete</button>

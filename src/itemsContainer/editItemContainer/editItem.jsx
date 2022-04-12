@@ -15,7 +15,7 @@ const EditItem = (props)=>{
         location: props.item.location,
         available: props.item.available
     })
-    // keep state of item before edits, change specifc fields based on field name by the value entered 
+    
     const inputChange=(e)=>{
         setEditItem({
             ...editItem,

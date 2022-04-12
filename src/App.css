@@ -5,36 +5,50 @@
 #logo{
   border: dotted 2px yellow;
   padding: 10px;
+  color:white;
+  text-decoration-style: none;
+  margin: 10px;
 }
 nav{
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
-  min-height: 10vh;
+  min-height: 18vh;
   background: #56da75;
   color:white;
 }
 
 .nav-links{
-  width: 50%;
+  width: 40%;
   display: flex;
   justify-content: space-around;
   align-items: center;
   list-style-type: none;
   border: dotted 2px yellow;
   padding: 10px;
+  margin: 10px;
+  
+}
+nav .links{
+  color: white;
+  text-decoration: none;
+
 }
 #items-div{
   margin: 5px;
   font-size: 2vh;
- 
+}
+#item-map{
+  display: flex;
+  flex-direction: column;
 }
 #single-item{
   width:30%;
-  border: solid 2px black;
+  border: solid 2px rgb(141, 223, 78);
   margin:15px;
   display: grid;
   grid-template-rows:auto;
+  gap: 20px;
   font-size: 3vh;
 }
 #about-div{
@@ -44,7 +58,13 @@ nav{
   margin: 5 auto;
 }
 #add{
-  
+  border: dotted 2px #56da75;
+  height:6vh;
+  padding: 0 20px;
+  background-color: rgb(231, 231, 73);
+  color:green;
+  font-size: 3vh;
+  font-weight:500;
 }
 #create-form{
   padding:10px;
