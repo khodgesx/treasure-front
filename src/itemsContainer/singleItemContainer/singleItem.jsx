@@ -51,13 +51,13 @@ const SingleItem = (props)=>{
                 </div>
             </Modal>
             <div id="buttons">
-            <button id="edit-button" onClick={toggleEdit}>Edit</button>
-            <button id="delete"onClick={()=>{props.deleteItem(props.item.id)}}>Delete</button>
+                <button id="edit-button" onClick={toggleEdit}>Edit</button>
+                <button id="delete"onClick={()=>{props.deleteItem(props.item.id)}}>Delete</button>
             </div>
             
 
             <Modal show={editShow} onHide={toggleEdit}>
-                <Modal.Header>
+                <Modal.Header closeButton>
                     <Modal.Title>Edit Item</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
