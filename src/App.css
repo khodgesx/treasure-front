@@ -32,7 +32,21 @@ nav a{
   padding: 10px;
   margin: 10px;  
 }
-
+#home{
+  text-align: center;
+  display: grid;
+  grid-template-rows: 0.2fr 1fr;
+}
+#home h1, h2{
+  color: rgb(0, 128, 87);
+}
+#home h1{
+  margin: 25px 0;
+}
+#home img{
+  display: block;
+  margin: 0 auto;
+}
 #items-div{
   margin: 5px;
   font-size: 2vh;
