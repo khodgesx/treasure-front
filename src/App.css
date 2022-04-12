@@ -17,6 +17,10 @@ nav{
   background: #56da75;
   color:white;
 }
+nav a{
+  text-decoration: none;
+  color:white;
+}
 
 .nav-links{
   width: 40%;
@@ -26,14 +30,10 @@ nav{
   list-style-type: none;
   border: dotted 2px yellow;
   padding: 10px;
-  margin: 10px;
-  
+  margin: 10px;  
 }
-nav .links{
-  color: white;
-  text-decoration: none;
 
-}
+
 #items-div{
   margin: 5px;
   font-size: 2vh;

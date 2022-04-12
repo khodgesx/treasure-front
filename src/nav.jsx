@@ -3,9 +3,7 @@ import './App.css';
 import {Link} from 'react-router-dom'
 
 const Nav=()=> {
-    // const navStyle = {
-    //     color:'white'
-    // }
+    
   return (
     <div>
        <nav>
