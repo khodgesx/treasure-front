@@ -56,7 +56,16 @@ nav a{
   display: flex;
   flex-direction: column;
   align-items: center;
+  border: dashed 1px black;
+  margin: 15px auto;
+  padding: 5px;
+  width: 55%;
 }
+/* #item-map{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+} */
 #single-item{
   margin:15px;
   display: grid;
@@ -65,6 +74,7 @@ nav a{
   width: 45%;
   border: solid 1px black;
 }
+
 #item-img{
   width: 40vw;
   display:block;
@@ -77,6 +87,24 @@ nav a{
   gap:10px;
   margin: 10px;
 }
+#map-img{
+  width: 18vw;
+}
+#item-show{
+  margin:15px auto;
+  display: block;
+  font-size: 3vh;
+  width: 45%;
+  border: solid 1px black;
+  padding:15px;
+  text-align:center;
+}
+#item-show img{
+  display: block;
+  margin: 0 auto;
+  border: solid 1px black;
+}
+
 #about-div{
   display: block;
   color:blue;
@@ -91,6 +119,7 @@ nav a{
   color:green;
   font-size: 3vh;
   font-weight:500;
+  margin: 20px auto 50px;
 }
 #create-form{
   padding:10px;

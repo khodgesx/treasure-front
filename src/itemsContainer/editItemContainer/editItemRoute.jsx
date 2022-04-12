@@ -5,10 +5,20 @@ import axios from 'axios'
 
 const EditItemRoute = ()=>{
     let id = useParams()
+    const [submitted, setSubmitted] = useState(false)
     useEffect(() =>{
         getItem();
     }, [])
-    const [editItem, setEditItem] = useState({})
+    const [item, setItem] = useState({
+                id:null,
+                title:'',
+                category:'',
+                details:'',
+                amount:0, 
+                img:'',
+                location:'', 
+                available:true
+    })
     const getItem = async()=>{
         const getApiResponse = await fetch(`${apiUrl}/api/items/${id.id}`)
         const parsedGet = await getApiResponse.json()
@@ -16,21 +26,39 @@ const EditItemRoute = ()=>{
 
         // console.log('inside get',item)
     }
-    // console.log('outside get',item)
+    
 
-    // const [editItem, setEditItem] = useState({
-    //     title: item.title,
-    //     category: item.category,
-    //     details: item.details,
-    //     amount: item.amount,
-    //     img: item.img,
-    //     location: item.location,
-    //     available: item.available
-    // })
-    // console.log(editItem.title)
-    
-    
-    
+    const [editItem, setEditItem] = useState({
+        title: item.title,
+        category: item.category,
+        details: item.details,
+        amount: item.amount,
+        img: item.img,
+        location: item.location,
+        available: item.available
+    })
+    console.log(editItem)
+
+
+    // const getItem =()=>{
+    //     axios.get(`${apiUrl}/api/items/${id.id}`)
+    //     .then((response)=>{
+    //         setEditItem({
+    //             id:response.data.id,
+    //             title:response.data.title,
+    //             category:response.data.category,
+    //             details:response.data.details,
+    //             amount:response.data.amount, 
+    //             img:response.data.img,
+    //             location:response.data.location, 
+    //             available:response.data.available
+    //         })
+    //         console.log(editItem.title)
+    //     })
+    //     .catch((e)=>{
+    //         console.log(e)
+    //     })
+    // }
 
     
     const inputChange=(e)=>{
@@ -63,7 +91,8 @@ const EditItemRoute = ()=>{
             }
         })
         .then(res=>{
-            console.log(res.data)
+            // console.log(res.data)
+            // console.log(form_data)
         })
         .catch(err => console.log(err))
         
@@ -110,6 +139,3 @@ const EditItemRoute = ()=>{
 
 export default EditItemRoute
 
-    // return(
-    //    
-    // )

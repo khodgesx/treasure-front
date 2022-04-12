@@ -1,12 +1,14 @@
 import {useParams, Link} from 'react-router-dom'
 import {useState, useEffect} from 'react'
 import apiUrl from '../../apiConfig'
+import '../../App.css'
 
-const SingleItemRoute = ()=>{
+const SingleItemRoute = (props)=>{
     useEffect(() =>{
         getItem();
     }, [])
     const [item, setItem] = useState({})
+  
     let id = useParams()
     
     const getItem = async()=>{
@@ -15,6 +17,10 @@ const SingleItemRoute = ()=>{
         setItem(parsedGet)
         // console.log(parsedGet)
     }
+
+
+ 
+   
     return(
         <div id="item-show">
             <h1>{item.title}</h1>
@@ -30,6 +36,8 @@ const SingleItemRoute = ()=>{
             <h1 key={`item-${item.id}`}>
                <Link to={`/items/update/${item.id}`}>Edit {item.title}</Link>
              </h1>
+             <button onClick={props.deleteItem}>Delete</button>
+    
             </div>
             
         </div>

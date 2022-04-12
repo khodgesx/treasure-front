@@ -136,16 +136,16 @@ const Items =()=>{
                 method:"DELETE"
             })
             console.log(idToDelete)
-            const parsedDelete = await deleteResponse.json()
-            console.log(parsedDelete)
-            if(parsedDelete.status === 204){
-                const newArray = items.filter((item)=>item.id !==idToDelete)
-                setItems(newArray)
-            }
+            // const parsedDelete = await deleteResponse.json()
+            // console.log(parsedDelete)
+            // if(parsedDelete.status === 204){
+                const newList = items.filter((item)=>item.id !==idToDelete)
+                setItems(newList)
+            // }
         }catch(err){
             console.log(err)
         }
-        window.location.reload()
+        // window.location.reload()
     }
 
 return( 
@@ -166,10 +166,13 @@ return(
 
               {/* <SingleItem deleteItem={deleteItem} item={item}
               ></SingleItem> */}
+              <div>
               <h1 key={`item-${item.id}`}>
-               <Link to={`/items/${item.id}`}>{item.title}</Link>
+               <Link to={`/items/${item.id}`}>{item.title} ({item.category})</Link>
              </h1>
-              
+             <img id="map-img"src={item.img}></img>
+             {/* <button onClick={deleteItem}>Remove</button> */}
+              </div>
               </div>
             
             )
