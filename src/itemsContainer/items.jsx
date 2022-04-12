@@ -1,5 +1,6 @@
 import '../App.css'
 import {useState, useEffect} from 'react'
+import axios from 'axios'
 import { Button, Modal} from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import {Link} from 'react-router-dom'
@@ -21,44 +22,92 @@ const Items =()=>{
         setItems(parsedGet)
     }
     const [image, setImage] = useState()
-    const createNew = async (newItem)=>{
-        try{
-            // if(image){
-            //     const data = new FormData()
-            //     data.append('file', image)
-            //     data.append('upload_preset', 'items')
 
-            //     const imgUpload = await fetch('https://api.cloudinary.com/v1_1/dmc4kghoi/image/upload', {
-            //         method: "POST",
-            //         body: data
-            //     })
-            //     const parsedImg = await imgUpload.json()
-            //     newItem.img = await parsedImg.url
-            // }else{
-            //     newItem.img = 'https://i.imgur.com/3cHAFsx.jpg'
-            // }
-            const createResponse = await fetch(`${apiUrl}/api/items/`, {
-                method: "POST",
-                body: JSON.stringify(newItem),
+    
+        const [newItem, setNewItem] = useState({
+            title:'',
+            category:'',
+            details:'',
+            amount:0,
+            img:'',
+            location:'',
+            available:true
+        })
+        const inputChange=(e)=>{
+            setNewItem({
+                ...newItem,
+                [e.target.name]:e.target.value
+            })
+        }
+        const imageChange=(e)=>{
+            setNewItem({
+                ...newItem, 
+                img: e.target.files[0]
+            })
+        }
+        const submitNew = async(e)=>{
+            e.preventDefault()
+            let form_data = new FormData();
+            form_data.append('img', newItem.img)
+            form_data.append('title', newItem.title)
+            form_data.append('category', newItem.category)
+            form_data.append('details', newItem.details)
+            form_data.append('amount', newItem.amount)
+            form_data.append('location', newItem.location)
+            form_data.append('available', newItem.available)
+            let url = `${apiUrl}/api/items/`;
+            axios.post(url, form_data, {
                 headers:{
-                    "Content-Type": "application/json",
-                    "Accept":"application/json"
+                    'Content-Type':'multipart/form-data'
                 }
             })
-            console.log(createResponse)
-            console.log('new item:', newItem)
-            const parsedCreate = await createResponse.json()
-            console.log('parsed response', parsedCreate)
             
-            if(parsedCreate.status === 200){
-                console.log(parsedCreate)
-            }
+            .then(res=>{
+                console.log(res.data)
+            })
+            .catch(err => console.log(err))
+            toggleShow()
+            window.location.reload()
             
-        }catch(err){
-            console.log(err)
         }
-        window.location.reload()
-    }
+    // const createNew = async (newItem)=>{
+    //     try{
+    //         // if(image){
+    //         //     const data = new FormData()
+    //         //     data.append('file', image)
+    //         //     data.append('upload_preset', 'items')
+
+    //         //     const imgUpload = await fetch('https://api.cloudinary.com/v1_1/dmc4kghoi/image/upload', {
+    //         //         method: "POST",
+    //         //         body: data
+    //         //     })
+    //         //     const parsedImg = await imgUpload.json()
+    //         //     newItem.img = await parsedImg.url
+    //         // }else{
+    //         //     newItem.img = 'https://i.imgur.com/3cHAFsx.jpg'
+    //         // }
+    //         const createResponse = await fetch(`${apiUrl}/api/items/`, {
+    //             method: "POST",
+    //             body: JSON.stringify(newItem),
+    //             headers:{
+    //                 "Content-Type": "application/json",
+    //                 "Accept":"application/json"
+    //             }
+    //         })
+    //         console.log(createResponse)
+    //         console.log('new item:', newItem)
+    //         const parsedCreate = await createResponse.json()
+    //         console.log('parsed response', parsedCreate)
+            
+    //         if(parsedCreate.status === 200){
+    //             console.log(parsedCreate)
+    //         }
+            
+    //     }catch(err){
+    //         console.log(err)
+    //     }
+    //     window.location.reload()
+    // }
 
     const editItem = async(idToEdit, itemToEdit)=>{
         try{
@@ -105,7 +154,8 @@ return(
                 <Modal.Title>Add details about your item(s) here:</Modal.Title>
             </Modal.Header>
             <div>
-                <NewItem image={image} setImage={setImage} createNew={createNew}></NewItem>
+                <NewItem image={image} setImage={setImage} 
+                newItem={newItem}inputChange={inputChange}imageChange={imageChange}submitNew={submitNew}></NewItem>
             </div>
         </Modal>
         { items.map((item)=>{

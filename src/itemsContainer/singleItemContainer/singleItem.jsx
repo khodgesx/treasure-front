@@ -33,10 +33,9 @@ const SingleItem = (props)=>{
         <div id="single-item">
             <div id="single-title">
                 <h2>{props.item.title}</h2>
-                {/* <button onClick={setShow}>Click to see more</button> */}
                 <h3>Click photo to see more</h3>
             </div>
-            <img id="item-img"onClick={setShow}src='https://i.imgur.com/3cHAFsx.jpg'></img>
+            <img id="item-img"onClick={setShow}src={props.item.img}></img>
 
             <Modal show={show} onHide={toggleShow}>
                 <Modal.Header closeButton>
@@ -57,7 +56,7 @@ const SingleItem = (props)=>{
             
 
             <Modal show={editShow} onHide={toggleEdit}>
-                <Modal.Header>
+                <Modal.Header closeButton>
                     <Modal.Title>Edit Item</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
