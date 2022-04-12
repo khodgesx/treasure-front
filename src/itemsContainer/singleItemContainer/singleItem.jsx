@@ -60,7 +60,7 @@ const SingleItem = (props)=>{
                     <Modal.Title>Edit Item</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <EditItem toggleEdit={toggleEdit} item={props.item}editItem={props.editItem}></EditItem>
+                    <EditItem toggleEdit={toggleEdit} item={props.item}></EditItem>
                 </Modal.Body>
             </Modal>
 

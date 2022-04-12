@@ -21,55 +21,55 @@ const Items =()=>{
         const parsedGet = await getApiResponse.json()
         setItems(parsedGet)
     }
+
     const [image, setImage] = useState()
 
-    
-        const [newItem, setNewItem] = useState({
-            title:'',
-            category:'',
-            details:'',
-            amount:0,
-            img:'',
-            location:'',
-            available:true
+    const [newItem, setNewItem] = useState({
+        title:'',
+        category:'',
+        details:'',
+        amount:0,
+        img:'',
+        location:'',
+        available:true
+    })
+    const inputChange=(e)=>{
+        setNewItem({
+            ...newItem,
+            [e.target.name]:e.target.value
         })
-        const inputChange=(e)=>{
-            setNewItem({
-                ...newItem,
-                [e.target.name]:e.target.value
-            })
-        }
-        const imageChange=(e)=>{
-            setNewItem({
-                ...newItem, 
-                img: e.target.files[0]
-            })
-        }
-        const submitNew = async(e)=>{
-            e.preventDefault()
-            let form_data = new FormData();
-            form_data.append('img', newItem.img)
-            form_data.append('title', newItem.title)
-            form_data.append('category', newItem.category)
-            form_data.append('details', newItem.details)
-            form_data.append('amount', newItem.amount)
-            form_data.append('location', newItem.location)
-            form_data.append('available', newItem.available)
-            let url = `${apiUrl}/api/items/`;
-            axios.post(url, form_data, {
-                headers:{
-                    'Content-Type':'multipart/form-data'
-                }
-            })
-            
-            .then(res=>{
-                console.log(res.data)
-            })
-            .catch(err => console.log(err))
-            toggleShow()
-            window.location.reload()
-            
-        }
+    }
+    const imageChange=(e)=>{
+        setNewItem({
+            ...newItem, 
+            img: e.target.files[0]
+        })
+    }
+    const submitNew = async(e)=>{
+        e.preventDefault()
+        let form_data = new FormData();
+        form_data.append('img', newItem.img)
+        form_data.append('title', newItem.title)
+        form_data.append('category', newItem.category)
+        form_data.append('details', newItem.details)
+        form_data.append('amount', newItem.amount)
+        form_data.append('location', newItem.location)
+        form_data.append('available', newItem.available)
+        let url = `${apiUrl}/api/items/`;
+        axios.post(url, form_data, {
+            headers:{
+                'Content-Type':'multipart/form-data'
+            }
+        })
+        
+        .then(res=>{
+            console.log(res.data)
+        })
+        .catch(err => console.log(err))
+        toggleShow()
+        window.location.reload()
+        
+    }
     // const createNew = async (newItem)=>{
     //     try{
     //         // if(image){
@@ -109,25 +109,27 @@ const Items =()=>{
     //     window.location.reload()
     // }
 
-    const editItem = async(idToEdit, itemToEdit)=>{
-        try{
-            const editResponse = await fetch(`http://localhost:8000/api/items/${idToEdit}`,{
-                method:"PUT",
-                body:JSON.stringify(itemToEdit),
-                headers:{
-                    "Content-Type":"application/json"
-                }
-            })
-            const parsedEdit = await editResponse.json()
+    // const editItem = async(idToEdit, itemToEdit)=>{
+    //     try{
+    //         const editResponse = await fetch(`http://localhost:8000/api/items/${idToEdit}`,{
+    //             method:"PUT",
+    //             body:JSON.stringify(itemToEdit),
+    //             headers:{
+    //                 "Content-Type":"application/json"
+    //             }
+    //         })
+    //         const parsedEdit = await editResponse.json()
             
-            if(parsedEdit.status === 204){
-                const newArray = items.map(item => item.id === idToEdit ? {...item, itemToEdit} : item)
-                setItems(newArray)
-            }
-        }catch(err){
-            console.log(err)
-        }
-    }
+    //         if(parsedEdit.status === 204){
+    //             const newArray = items.map(item => item.id === idToEdit ? {...item, itemToEdit} : item)
+    //             setItems(newArray)
+    //         }
+    //     }catch(err){
+    //         console.log(err)
+    //     }
+    // }
+   
+   
     const deleteItem = async(idToDelete)=>{
         try{
             const deleteResponse = await fetch(`http://localhost:8000/api/items/${idToDelete}`,{
@@ -162,12 +164,14 @@ return(
             return(
                 <div id="item-map" key={`item-${item.id}`}>
 
-              <SingleItem deleteItem={deleteItem}editItem={editItem} item={item}></SingleItem>
+              {/* <SingleItem deleteItem={deleteItem} item={item}
+              ></SingleItem> */}
+              <h1 key={`item-${item.id}`}>
+               <Link to={`/items/${item.id}`}>{item.title}</Link>
+             </h1>
               
               </div>
-            // <h1 key={`item-${item.id}`}>
-            //     <Link to={`/items/${item.id}`}>{item.title}</Link>
-            // </h1>
+            
             )
         })}
     </div>
