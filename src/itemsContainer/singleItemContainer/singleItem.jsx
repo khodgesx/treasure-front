@@ -1,14 +1,21 @@
 import {useState, useEffect} from 'react'
 // import './App.css'
 import {Link, useParams, useLocation} from 'react-router-dom'
-import { ReactDOM } from 'react-dom'
+import {Modal} from 'react-bootstrap'
+import Items from '../items'
+import EditItem from '../editItemContainer/editItem'
 
 // const SingleItem = (props)=>{
 const SingleItem = (props)=>{
-        console.log(props.match.params.id)
-    useEffect(()=>{
-        // getItem();
-    }, [])
+    const [show, setShow] = useState(false)
+    const toggleShow =()=>setShow(!show)
+
+    const [editShow, setEditShow] = useState(false)
+    const toggleEdit =()=>setEditShow(!editShow)
+        // console.log(props.match.params.id)
+    // useEffect(()=>{
+    //     // getItem();
+    // }, [])
     // const [item, setItem] = useState({})
     // const getItem = async()=>{
     //     const getItem = await fetch(`http://localhost:8000/api/items/1`)
@@ -24,15 +31,32 @@ const SingleItem = (props)=>{
     return(
         
         <div id="single-item">
-            <h2>item page</h2>
-            {/* <h2>{item.title}</h2> */}
-            {/* <h3>{props.item.title}</h3> */}
-            {/* <img src={value.img} />  */}
-            {/* <h4>{props.item.category}</h4>
-            <h4>{props.item.details}</h4>
-            <h4>{props.item.amount}</h4>
-            <h4>{props.item.location}</h4>
-            <h4>{props.item.available}</h4> */}
+            <button onClick={setShow}>Click to see more about: {props.item.title}</button>
+            
+            {/* <img src={props.item.img}></img> */}
+            <Modal show={show} onHide={toggleShow}>
+                <Modal.Header closeButton>
+                    <Modal.Title>{props.item.title}</Modal.Title>
+                </Modal.Header>
+                <div>
+                    <h3>Category: {props.item.category}</h3>
+                    <h3>Amount: {props.item.amount}</h3>
+                    <h3>Details/Description: {props.item.details}</h3>
+                    <h3>Location: {props.item.location}</h3>
+                    <h3>Available: { props.item.available === true ? 'Yes' :'No' }</h3>
+                </div>
+
+            </Modal>
+            <button onClick={toggleEdit}>Edit</button>
+            <Modal show={editShow} onHide={toggleEdit}>
+                <Modal.Header>
+                    <Modal.Title>Edit Item</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    <EditItem></EditItem>
+                </Modal.Body>
+            </Modal>
+         
 
         </div>
     )

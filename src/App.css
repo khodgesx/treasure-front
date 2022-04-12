@@ -27,10 +27,32 @@ nav{
 #items-div{
   margin: 5px;
   font-size: 2vh;
+ 
+}
+#single-item{
+  width:30%;
+  border: solid 2px black;
+  margin:15px;
+  display: grid;
+  grid-template-rows:auto;
+  font-size: 3vh;
 }
 #about-div{
   display: block;
   color:blue;
   padding:5px;
   margin: 5 auto;
+}
+#add{
+  
+}
+#create-form{
+  padding:10px;
+  border: solid 5px green;
+}
+#delete{
+  border:solid 1px red;
+  padding: 5px 15px;
+  color:red;
+
 }
