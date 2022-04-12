@@ -108,8 +108,13 @@ nav a{
 #about-div{
   display: block;
   color:blue;
-  padding:5px;
-  margin: 5 auto;
+  padding:20px 50px 50px;;
+  margin: 20px auto;
+  width: 50%;
+  border: solid 1px black;
+}
+#about-list{
+  text-align: left;
 }
 #add{
   border: dotted 2px #56da75;

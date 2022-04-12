@@ -59,7 +59,10 @@ const EditItemRoute = ()=>{
     //         console.log(e)
     //     })
     // }
-
+    // const updateItem = ()=>{
+    //     axios.put(`${apiUrl}/api/items/update/${id.id}`, 
+    //     )
+    // }
     
     const inputChange=(e)=>{
         setEditItem({
