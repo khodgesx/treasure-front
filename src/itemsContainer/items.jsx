@@ -115,7 +115,7 @@ return(
                         <Link to={`/items/${item.id}`}>{item.title} ({item.category})</Link>
                         
                         </h1>
-                        <img id="map-img"src={item.img}></img>
+                        <Link to={`/items/${item.id}`}><img id="map-img"src={item.img}></img></Link>
                      </div>
               </div>
             
