@@ -1,4 +1,4 @@
-import {useParams, Link} from 'react-router-dom'
+import {useParams, Link, useNavigate} from 'react-router-dom'
 import {useState, useEffect} from 'react'
 import apiUrl from '../../apiConfig'
 import '../../App.css'
@@ -8,16 +8,36 @@ const SingleItemRoute = (props)=>{
     useEffect(() =>{
         getItem();
     }, [])
+    let navigate = useNavigate()
+
     const [item, setItem] = useState({})
   
-    let id = useParams()
+    const params = useParams()
+    const id = params.id
     
     const getItem = async()=>{
-        const getApiResponse = await fetch(`${apiUrl}/api/items/${id.id}`)
+        const getApiResponse = await fetch(`${apiUrl}/api/items/${id}`)
         const parsedGet = await getApiResponse.json()
         setItem(parsedGet)
-        // console.log(parsedGet)
-
+    }
+   
+    const deleteItem = async()=>{
+        console.log('1st',id)
+        try{
+            console.log(id)
+            const deleteResponse = await fetch(`http://localhost:8000/api/items/${id}`,{
+                method:"DELETE"
+            })
+            console.log('2nd',id)
+                const newList = props.items.filter((item)=>item.id !==id)
+                props.setItems(newList)
+                if(deleteResponse.status === 204){
+                    navigate ("/")
+                } 
+                
+        }catch(err){
+            console.log(err)
+        }
     }
    
     
@@ -41,7 +61,7 @@ const SingleItemRoute = (props)=>{
                <Link id="edit-link"to={`/items/update/${item.id}`}>Edit {item.title}</Link>
              </h1>
              <div id="delete-div">
-                <button id="delete-button"onClick={props.deleteItem}>Delete</button>
+                <button id="delete-button"onClick={deleteItem}>Delete</button>
              </div>
              
     

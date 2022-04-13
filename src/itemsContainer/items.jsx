@@ -94,23 +94,23 @@ const Items =(props)=>{
     // }
    
    
-    const deleteItem = async(idToDelete)=>{
-        try{
-            const deleteResponse = await fetch(`http://localhost:8000/api/items/${idToDelete}`,{
-                method:"DELETE"
-            })
-            console.log(idToDelete)
-            // const parsedDelete = await deleteResponse.json()
-            // console.log(parsedDelete)
-            // if(parsedDelete.status === 204){
-                const newList = props.items.filter((item)=>item.id !==idToDelete)
-                props.setItems(newList)
-            // }
-        }catch(err){
-            console.log(err)
-        }
-        // window.location.reload()
-    }
+    // const deleteItem = async(idToDelete)=>{
+    //     try{
+    //         const deleteResponse = await fetch(`http://localhost:8000/api/items/${idToDelete}`,{
+    //             method:"DELETE"
+    //         })
+    //         console.log(idToDelete)
+    //         // const parsedDelete = await deleteResponse.json()
+    //         // console.log(parsedDelete)
+    //         // if(parsedDelete.status === 204){
+    //             const newList = props.items.filter((item)=>item.id !==idToDelete)
+    //             props.setItems(newList)
+    //         // }
+    //     }catch(err){
+    //         console.log(err)
+    //     }
+    //     // window.location.reload()
+    // }
 
 return( 
     <div id="items-div">
