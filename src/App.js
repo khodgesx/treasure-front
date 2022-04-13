@@ -24,7 +24,7 @@ function App() {
             <Route exact path="/about" element={ < About />}/>
             <Route  path="/items" element={ < Items items={items}setItems={setItems} />}/>
             <Route exact path="/items/:id" element={ <SingleItemRoute items={items} setItems={setItems} />} /> 
-            <Route exact path="/items/update/:id" element = { <EditItemRoute />}/>
+            <Route exact path="/items/update/:id" element = { <EditItemRoute items={items}setItems={setItems}/>}/>
             <Route path="/items/:id" element={ <SingleItem />} /> 
             <Route path="*" element={<Navigate to="/" replace/> }/>
           </Routes>

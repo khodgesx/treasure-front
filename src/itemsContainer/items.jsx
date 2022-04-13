@@ -56,19 +56,19 @@ const Items =(props)=>{
         form_data.append('location', newItem.location)
         form_data.append('available', newItem.available)
         let url = `${apiUrl}/api/items/`;
+        console.log(form_data)
         axios.post(url, form_data, {
             headers:{
                 'Content-Type':'multipart/form-data'
             }
         })
-        
         .then(res=>{
             console.log(res.data)
         })
         .catch(err => console.log(err))
         toggleShow()
         //need to find a better fix than just refreshing the page...
-        window.location.reload()
+        // window.location.reload()
         
     }
  
