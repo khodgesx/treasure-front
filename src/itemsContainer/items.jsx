@@ -4,7 +4,6 @@ import axios from 'axios'
 import { Button, Modal} from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import {Link} from 'react-router-dom'
-import SingleItem from './singleItemContainer/singleItem'
 import NewItem from './newItemContainer/newItem'
 import apiUrl from '../apiConfig'
 

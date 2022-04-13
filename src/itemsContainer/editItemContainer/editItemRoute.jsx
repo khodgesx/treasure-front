@@ -39,7 +39,7 @@ const EditItemRoute = (props)=>{
         location: item.location,
         available: item.available
     })
-    // console.log(editItem)
+ 
     const getItem = async()=>{
         const getApiResponse = await fetch(`${apiUrl}/api/items/${id}`)
         const parsedGet = await getApiResponse.json()
@@ -76,7 +76,6 @@ const EditItemRoute = (props)=>{
         })
         
         .then(res=>{
-            // console.log(res.data)
             const edited = res.data
             const newArray = props.items.map(item => item.id === id ? {...editItem, edited} : item)
                 props.setItems(newArray)
@@ -116,7 +115,7 @@ const EditItemRoute = (props)=>{
     return(
         <div>
             <div>
-                <h1 id="edit-title">edit <strong>{editItem.title}</strong> here:</h1>
+                <h1 id="edit-title">{editItem.title}</h1>
             </div>
              <div id="edit-form">
               <form onSubmit={submitEdit} encType="multipart/form"> 
@@ -137,10 +136,6 @@ const EditItemRoute = (props)=>{
                         <input onChange={inputChange} type="number" name="amount" value={editItem.amount}></input>
                     </div>
                     <div>
-                        {/* <label htmlFor="img">Photo </label>
-                         <input onChange={imageChange} type="file" name="img" id="item-pic"accept="image/png, image/jpeg" placeholder='upload image'></input> */}
-                    </div>
-                    <div>
                         <label htmlFor="location">Location: </label>
                         <input onChange={inputChange} type="text" name="location" value={editItem.location}></input>
                     </div>
@@ -151,23 +146,28 @@ const EditItemRoute = (props)=>{
                         <label htmlFor="available">Not Available: </label>
                         <input onChange={inputChange} type="radio" name="available" value={!editItem.available}></input>
                     </div>
-
-                      <button type="submit">Save Changes</button>
+                        <div id="save-edits">
+                            <button  type="submit">Save Changes</button>
+                        </div>
+                      
                   </form>
-
-                  <button onClick={setShow}>Change Photo</button>
-                  <button onClick={backToShowPage}>Back</button>
                   
-                  <Modal show={show} onHide={toggleShow}>
-                          <Modal.Header closeButton><Modal.Title>Edit Image</Modal.Title></Modal.Header>
+                  <div id="photo-back-buttons">
+                    <button onClick={setShow}>Change Photo</button>
+                    <button onClick={backToShowPage}>Back</button>
+                  </div>
+                  
+                  <Modal id="photo-modal"show={show} onHide={toggleShow}>
+                          <Modal.Header id="modal-header" closeButton><Modal.Title id="photo-modal">New Photo:</Modal.Title></Modal.Header>
                           
-                          <form onSubmit={submitImage} encType="multipart/form">
-                          <div>
-                        <label htmlFor="img">Photo </label>
+                          <form id="photo-form"onSubmit={submitImage} encType="multipart/form">
+                          <div id="edit-photo">
+                        <label htmlFor="img"> </label>
                          <input onChange={imageChange} type="file" name="img" id="item-pic"accept="image/png, image/jpeg" placeholder='upload image'></input>
                     </div>
-                    <button type="submit"onClick={toggleShow}>Submit</button>
-
+                    <div id="submit-photo">
+                        <button type="submit"onClick={toggleShow}>Submit</button>
+                    </div>
 
                     <div id="hidden">
                          
