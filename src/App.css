@@ -197,6 +197,9 @@ nav a{
 #edit-details input{
   width: 100%;
 }
+#hidden{
+  display: none;
+}
 #delete{
   border:solid 1px red;
   padding: 5px 15px;
