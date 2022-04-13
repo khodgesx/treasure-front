@@ -37,7 +37,7 @@ const EditItemRoute = ()=>{
         location: item.location,
         available: item.available
     })
-    console.log(editItem)
+    // console.log(editItem)
 
 
     // const getItem =()=>{
@@ -87,6 +87,7 @@ const EditItemRoute = ()=>{
         form_data.append('amount', editItem.amount)
         form_data.append('location', editItem.location)
         form_data.append('available', editItem.available)
+        console.log(form_data)
         let url = `${apiUrl}/api/items/${id.id}`;
         axios.put(url, form_data, {
             headers:{
@@ -94,7 +95,7 @@ const EditItemRoute = ()=>{
             }
         })
         .then(res=>{
-            // console.log(res.data)
+            console.log(res.data)
             // console.log(form_data)
         })
         .catch(err => console.log(err))
@@ -120,7 +121,7 @@ const EditItemRoute = ()=>{
                         <input onChange={inputChange} type="text" name="details" value={editItem.details}></input>
                     </div>    
                     <div>
-                        <label htmlFor="amount">Amount </label>
+                        <label htmlFor="amount">Amount: </label>
                         <input onChange={inputChange} type="number" name="amount" value={editItem.amount}></input>
                     </div>
                     {/* <div>
@@ -132,10 +133,10 @@ const EditItemRoute = ()=>{
                         <input onChange={inputChange} type="text" name="location" value={editItem.location}></input>
                     </div>
                     <div>
-                        <label htmlFor="available">Available </label>
+                        <label htmlFor="available">Available: </label>
                         <input onChange={inputChange} type="radio" name="available" value={editItem.available}></input>
      
-                        <label htmlFor="available">Not Available </label>
+                        <label htmlFor="available">Not Available: </label>
                         <input onChange={inputChange} type="radio" name="available" value={!editItem.available}></input>
                     </div>
 

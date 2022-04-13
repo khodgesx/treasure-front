@@ -132,7 +132,11 @@ return(
               ></SingleItem> */}
               <div>
               <h1 key={`item-${item.id}`}>
-               <Link to={`/items/${item.id}`}>{item.title} ({item.category})</Link>
+               {/* <Link to={`/items/${item.id}`}>{item.title} ({item.category})</Link> */}
+               <Link to ={{
+                   pathname:`/items/${item.id}`,
+                   data:{deleteItem:deleteItem}
+               }}>{item.title}</Link>
              </h1>
              <img id="map-img"src={item.img}></img>
              {/* <button onClick={deleteItem}>Remove</button> */}

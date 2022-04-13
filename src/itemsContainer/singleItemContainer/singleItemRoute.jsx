@@ -4,6 +4,7 @@ import apiUrl from '../../apiConfig'
 import '../../App.css'
 
 const SingleItemRoute = (props)=>{
+   
     useEffect(() =>{
         getItem();
     }, [])
@@ -17,6 +18,7 @@ const SingleItemRoute = (props)=>{
         setItem(parsedGet)
         // console.log(parsedGet)
     }
+    
 
 
  
