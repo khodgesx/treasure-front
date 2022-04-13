@@ -12,7 +12,7 @@ const Items =(props)=>{
     useEffect(() =>{
         getItems();
     }, [])
-    // const [items, setItems] = useState([])
+    
     const [showing, setShowing] = useState(false)
     const toggleShow =()=>setShowing(!showing)
 
@@ -64,12 +64,12 @@ const Items =(props)=>{
         })
         .then(res=>{
             console.log(res.data)
+            const newArray = [res.data, ...props.items]
+            props.setItems(newArray)
         })
         .catch(err => console.log(err))
         toggleShow()
-        //need to find a better fix than just refreshing the page...
-        // window.location.reload()
-        
+ 
     }
  
 
@@ -93,24 +93,7 @@ const Items =(props)=>{
     //     }
     // }
    
-   
-    // const deleteItem = async(idToDelete)=>{
-    //     try{
-    //         const deleteResponse = await fetch(`http://localhost:8000/api/items/${idToDelete}`,{
-    //             method:"DELETE"
-    //         })
-    //         console.log(idToDelete)
-    //         // const parsedDelete = await deleteResponse.json()
-    //         // console.log(parsedDelete)
-    //         // if(parsedDelete.status === 204){
-    //             const newList = props.items.filter((item)=>item.id !==idToDelete)
-    //             props.setItems(newList)
-    //         // }
-    //     }catch(err){
-    //         console.log(err)
-    //     }
-    //     // window.location.reload()
-    // }
+  
 
 return( 
     <div id="items-div">
@@ -127,17 +110,13 @@ return(
         { props.items.map((item)=>{
             return(
                 <div id="item-map" key={`item-${item.id}`}>
-
-              {/* <SingleItem deleteItem={deleteItem} item={item}
-              ></SingleItem> */}
-              <div>
-              <h1 key={`item-${item.id}`}>
-               <Link to={`/items/${item.id}`}>{item.title} ({item.category})</Link>
-               
-             </h1>
-             <img id="map-img"src={item.img}></img>
-             {/* <button onClick={deleteItem}>Remove</button> */}
-              </div>
+                    <div>
+                        <h1 key={`item-${item.id}`}>
+                        <Link to={`/items/${item.id}`}>{item.title} ({item.category})</Link>
+                        
+                        </h1>
+                        <img id="map-img"src={item.img}></img>
+                     </div>
               </div>
             
             )

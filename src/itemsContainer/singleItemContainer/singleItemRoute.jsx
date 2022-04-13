@@ -32,18 +32,13 @@ const SingleItemRoute = (props)=>{
                 const newList = props.items.filter((item)=>item.id !==id)
                 props.setItems(newList)
                 if(deleteResponse.status === 204){
-                    navigate ("/")
+                    navigate ("/items")
                 } 
                 
         }catch(err){
             console.log(err)
         }
     }
-   
-    
-
-
- 
    
     return(
         <div id="item-show">

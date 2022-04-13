@@ -2,6 +2,7 @@ import {useParams, useNavigate} from 'react-router-dom'
 import {useState, useEffect} from 'react'
 import apiUrl from '../../apiConfig'
 import axios from 'axios'
+import { Modal } from 'react-bootstrap'
 
 const EditItemRoute = (props)=>{
     let navigate = useNavigate()
@@ -12,6 +13,8 @@ const EditItemRoute = (props)=>{
     useEffect(() =>{
         getItem();
     }, [])
+    const [show, setShow] = useState(false)
+    const toggleShow=()=>setShow(!show)
     const [item, setItem] = useState({
                 id:null,
                 title:'',
@@ -77,6 +80,27 @@ const EditItemRoute = (props)=>{
         .catch(err => console.log(err))
        
     }
+    const submitImage = async(e)=>{
+        e.preventDefault()
+        let form_data = new FormData();
+        form_data.append('img', editItem.img)
+        let url = `${apiUrl}/api/items/${id}`;
+        axios.put(url, form_data, {
+            headers:{
+                'Content-Type':'multipart/form-data'
+            }
+        })
+        
+        .then(res=>{
+            console.log(res.data)
+            const edited = res.data
+            // const newArray = props.items.map(item => item.id === id ? {...editItem, edited} : item)
+            //     props.setItems(newArray)
+                // navigate (`/items/update/${id}`)
+        })
+        .catch(err => console.log(err))
+       
+    }
   
     return(
         <div>
@@ -118,8 +142,24 @@ const EditItemRoute = (props)=>{
                     </div>
 
                       <button type="submit">Save Changes</button>
-
                   </form>
+
+                  <button onClick={setShow}>Change Photo</button>
+                  <Modal show={show} onHide={toggleShow}>
+                          <Modal.Header closeButton><Modal.Title>Edit Image</Modal.Title></Modal.Header>
+                          
+
+                          
+                          <form onSubmit={submitImage} encType="multipart/form">
+                            <div>
+                                <label htmlFor="img">Photo </label>
+                                <input onChange={imageChange} type="file" name="img" id="item-pic"accept="image/png, image/jpeg" placeholder='upload image'></input>
+                            </div>
+                          <button type="submit"onClick={toggleShow}>Submit</button>
+
+                          </form>
+                          
+                      </Modal>
              </div>
              </div>
     )
