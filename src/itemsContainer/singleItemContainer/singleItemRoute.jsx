@@ -1,5 +1,6 @@
 import {useParams, Link, useNavigate} from 'react-router-dom'
 import {useState, useEffect} from 'react'
+import {Modal} from 'react-bootstrap'
 import apiUrl from '../../apiConfig'
 import '../../App.css'
 
@@ -11,9 +12,10 @@ const SingleItemRoute = (props)=>{
     let navigate = useNavigate()
 
     const [item, setItem] = useState({})
-  
     const params = useParams()
     const id = params.id
+    const [show, setShow] = useState(false)
+    const toggleShow=()=>setShow(!show)
     
     const getItem = async()=>{
         const getApiResponse = await fetch(`${apiUrl}/api/items/${id}`)
@@ -43,7 +45,11 @@ const SingleItemRoute = (props)=>{
     return(
         <div id="item-show">
             <h1 id="item-title">{item.title}</h1>
-            <img src={item.img}></img>
+            <img onClick={toggleShow}src={item.img}></img>
+            <Modal show={show} onHide={toggleShow}>
+                <Modal.Header closeButton></Modal.Header>
+                <img src={item.img}></img>
+            </Modal>
             <div id="item-details">
                 <h3><u>Category:</u> {item.category}</h3>
                 <h3><u>Amount:</u> {item.amount}</h3>
@@ -53,7 +59,7 @@ const SingleItemRoute = (props)=>{
             </div>
             <div>
             <h1 key={`item-${item.id}`}>
-               <Link id="edit-link"to={`/items/update/${item.id}`}>Edit {item.title}</Link>
+               <Link id="edit-link"to={`/items/update/${item.id}`}>Edit Details</Link>
              </h1>
              <div id="delete-div">
                 <button id="delete-button"onClick={deleteItem}>Delete</button>
