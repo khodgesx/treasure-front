@@ -102,38 +102,45 @@ const EditItemRoute = ()=>{
     }
     return(
         <div>
-
-        
         <div>
-            <h1>edit <strong>{editItem.title}</strong> here:</h1>
+            <h1 id="edit-title">edit <strong>{editItem.title}</strong> here:</h1>
         </div>
-             <div>
+             <div id="edit-form">
               <form onSubmit={submitEdit}> 
-                  <label htmlFor="title">Item(s): </label>
-                      <input onChange={inputChange} type="text" name="title" value={editItem.title}></input>
+                    <div>
+                        <label htmlFor="title">Item(s): </label>
+                        <input onChange={inputChange} type="text" name="title" value={editItem.title}></input>
+                    </div>
+                    <div>
+                        <label htmlFor="category">Category: </label>
+                        <input onChange={inputChange} type="text" name="category" value={editItem.category}></input>
+                    </div>
+                    <div id="edit-details">
+                        <label htmlFor="details">Description: </label>
+                        <input onChange={inputChange} type="text" name="details" value={editItem.details}></input>
+                    </div>    
+                    <div>
+                        <label htmlFor="amount">Amount </label>
+                        <input onChange={inputChange} type="number" name="amount" value={editItem.amount}></input>
+                    </div>
+                    {/* <div>
+                        <label htmlFor="img">Photo </label>
+                         <input onChange={imageChange} type="file" name="img" id="item-pic"accept="image/png, image/jpeg" placeholder='upload image'></input>
+                    </div> */}
+                    <div>
+                        <label htmlFor="location">Location: </label>
+                        <input onChange={inputChange} type="text" name="location" value={editItem.location}></input>
+                    </div>
+                    <div>
+                        <label htmlFor="available">Available </label>
+                        <input onChange={inputChange} type="radio" name="available" value={editItem.available}></input>
      
-                     <label htmlFor="category">Category: </label>
-                      <input onChange={inputChange} type="text" name="category" value={editItem.category}></input>
-     
-                      <label htmlFor="details">Details/Description: </label>
-                      <input onChange={inputChange} type="text" name="details" value={editItem.details}></input>
-     
-                      <label htmlFor="amount">Amount </label>
-                      <input onChange={inputChange} type="number" name="amount" value={editItem.amount}></input>
-     
-                      <label htmlFor="img">Photo </label>
-                      <input onChange={imageChange} type="file" name="img" id="item-pic"accept="image/png, image/jpeg" placeholder='upload image'></input>
-     
-                      <label htmlFor="location">Location: </label>
-                      <input onChange={inputChange} type="text" name="location" value={editItem.location}></input>
-                     <div>
-                          <label htmlFor="available">Available </label>
-                          <input onChange={inputChange} type="radio" name="available" value={editItem.available}></input>
-     
-                          <label htmlFor="available">Not Available </label>
-                          <input onChange={inputChange} type="radio" name="available" value={!editItem.available}></input>
-                     </div>
+                        <label htmlFor="available">Not Available </label>
+                        <input onChange={inputChange} type="radio" name="available" value={!editItem.available}></input>
+                    </div>
+
                       <button type="submit">Save Changes</button>
+
                   </form>
              </div>
              </div>

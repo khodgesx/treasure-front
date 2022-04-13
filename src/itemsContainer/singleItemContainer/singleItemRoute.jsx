@@ -23,20 +23,23 @@ const SingleItemRoute = (props)=>{
    
     return(
         <div id="item-show">
-            <h1>{item.title}</h1>
+            <h1 id="item-title">{item.title}</h1>
             <img src={item.img}></img>
             <div id="item-details">
-                <h3>Category: {item.category}</h3>
-                <h3>Amount: {item.amount}</h3>
-                <h3>Details/Description: {item.details}</h3>
-                <h3>Location: {item.location}</h3>
-                <h3>Available: { item.available === true ? 'Yes' :'No' }</h3>
+                <h3><u>Category:</u> {item.category}</h3>
+                <h3><u>Amount:</u> {item.amount}</h3>
+                <h3><u>Description:</u> {item.details}</h3>
+                <h3><u>Location:</u> {item.location}</h3>
+                <h3><u>Available:</u> { item.available === true ? 'Yes' :'No' }</h3>
             </div>
             <div>
             <h1 key={`item-${item.id}`}>
-               <Link to={`/items/update/${item.id}`}>Edit {item.title}</Link>
+               <Link id="edit-link"to={`/items/update/${item.id}`}>Edit {item.title}</Link>
              </h1>
-             <button onClick={props.deleteItem}>Delete</button>
+             <div id="delete-div">
+                <button id="delete-button"onClick={props.deleteItem}>Delete</button>
+             </div>
+             
     
             </div>
             

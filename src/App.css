@@ -104,6 +104,31 @@ nav a{
   margin: 0 auto;
   border: solid 1px black;
 }
+#item-title{
+  color:green;
+}
+#item-details{
+  margin: 20px 0;
+}
+#item-show h3{
+  text-align: left;
+  display:block;
+  margin: 10px;
+}
+#edit-link{
+  color:green;
+  font-size: 3vh;
+}
+#delete-button{
+  border: none;
+  color:Red;
+  background-color: antiquewhite;
+  padding: 2px 15px;
+}
+#delete-div{
+  display: flex;
+  justify-content: flex-end;
+}
 
 #about-div{
   display: block;
@@ -146,6 +171,31 @@ nav a{
   align-items: center;
   justify-content: space-between;
   width: 50%;
+}
+#edit-title{
+  text-align: center;
+  color:rgb(78, 162, 134);
+}
+#edit-form{
+  border: solid 1px black;
+  width: 50%;
+  display: block;
+  margin: 15px auto;
+  padding: 10px;
+}
+#edit-form div{
+  padding:5px;
+}
+#edit-form button{
+  margin: 10px;
+  border:none;
+  background-color: #56da75;
+  color:white;
+  font-weight: 800;
+  padding: 5px 20px;
+}
+#edit-details input{
+  width: 100%;
 }
 #delete{
   border:solid 1px red;
