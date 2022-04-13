@@ -6,6 +6,10 @@ import { Modal } from 'react-bootstrap'
 
 const EditItemRoute = (props)=>{
     let navigate = useNavigate()
+
+    const backToShowPage = ()=>{
+        navigate(`/items/${id}`)
+    }
     //params grabs the id from the url - react router
     const params = useParams()
     const id = params.id
@@ -152,6 +156,8 @@ const EditItemRoute = (props)=>{
                   </form>
 
                   <button onClick={setShow}>Change Photo</button>
+                  <button onClick={backToShowPage}>Back</button>
+                  
                   <Modal show={show} onHide={toggleShow}>
                           <Modal.Header closeButton><Modal.Title>Edit Image</Modal.Title></Modal.Header>
                           

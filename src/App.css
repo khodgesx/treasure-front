@@ -103,6 +103,7 @@ nav a{
   display: block;
   margin: 0 auto;
   border: solid 1px black;
+  height:40vh;
 }
 #item-title{
   color:green;
