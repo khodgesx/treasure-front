@@ -8,18 +8,18 @@ import SingleItem from './singleItemContainer/singleItem'
 import NewItem from './newItemContainer/newItem'
 import apiUrl from '../apiConfig'
 
-const Items =()=>{
+const Items =(props)=>{
     useEffect(() =>{
         getItems();
     }, [])
-    const [items, setItems] = useState([])
+    // const [items, setItems] = useState([])
     const [showing, setShowing] = useState(false)
     const toggleShow =()=>setShowing(!showing)
 
     const getItems = async()=>{
         const getApiResponse = await fetch(`${apiUrl}/api/items`)
         const parsedGet = await getApiResponse.json()
-        setItems(parsedGet)
+        props.setItems(parsedGet)
     }
 
     const [image, setImage] = useState()
@@ -103,8 +103,8 @@ const Items =()=>{
             // const parsedDelete = await deleteResponse.json()
             // console.log(parsedDelete)
             // if(parsedDelete.status === 204){
-                const newList = items.filter((item)=>item.id !==idToDelete)
-                setItems(newList)
+                const newList = props.items.filter((item)=>item.id !==idToDelete)
+                props.setItems(newList)
             // }
         }catch(err){
             console.log(err)
@@ -124,7 +124,7 @@ return(
                 newItem={newItem}inputChange={inputChange}imageChange={imageChange}submitNew={submitNew}></NewItem>
             </div>
         </Modal>
-        { items.map((item)=>{
+        { props.items.map((item)=>{
             return(
                 <div id="item-map" key={`item-${item.id}`}>
 
@@ -132,11 +132,8 @@ return(
               ></SingleItem> */}
               <div>
               <h1 key={`item-${item.id}`}>
-               {/* <Link to={`/items/${item.id}`}>{item.title} ({item.category})</Link> */}
-               <Link to ={{
-                   pathname:`/items/${item.id}`,
-                   data:{deleteItem:deleteItem}
-               }}>{item.title}</Link>
+               <Link to={`/items/${item.id}`}>{item.title} ({item.category})</Link>
+               
              </h1>
              <img id="map-img"src={item.img}></img>
              {/* <button onClick={deleteItem}>Remove</button> */}

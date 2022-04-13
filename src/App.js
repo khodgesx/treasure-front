@@ -7,13 +7,12 @@ import SingleItem from './itemsContainer/singleItemContainer/singleItem';
 import About from './aboutContainer/about';
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
 import SingleItemRoute from './itemsContainer/singleItemContainer/singleItemRoute';
-import EditItem from './itemsContainer/editItemContainer/editItem';
 import EditItemRoute from './itemsContainer/editItemContainer/editItemRoute';
+import { useState } from 'react';
 
 function App() {
-  const deleteItem = ()=>{
-    console.log('something')
-  }
+  const [items, setItems] = useState([])
+  
   return (
     <Router>
       <div className="App">
@@ -23,8 +22,8 @@ function App() {
           <Routes>
             <Route exact path="/" element={< Home />}/>
             <Route exact path="/about" element={ < About />}/>
-            <Route exact path="/items" element={ < Items />}/>
-            <Route exact path="/items/:id" element={ <SingleItemRoute deleteItem={deleteItem}/>} /> 
+            <Route  path="/items" element={ < Items items={items}setItems={setItems} />}/>
+            <Route exact path="/items/:id" element={ <SingleItemRoute />} /> 
             <Route exact path="/items/update/:id" element = { <EditItemRoute />}/>
             <Route path="/items/:id" element={ <SingleItem />} /> 
           </Routes>

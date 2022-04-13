@@ -17,7 +17,9 @@ const SingleItemRoute = (props)=>{
         const parsedGet = await getApiResponse.json()
         setItem(parsedGet)
         // console.log(parsedGet)
+
     }
+   
     
 
 
