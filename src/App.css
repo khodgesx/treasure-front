@@ -120,6 +120,10 @@ nav a{
 #item-details{
   margin: 20px 0;
 }
+#item-details h3{
+  font-size: 2vh;
+  color:rgb(191, 107, 121);
+}
 #item-show h3{
   text-align: left;
   display:block;
@@ -321,6 +325,15 @@ nav a{
   }
   #item-title{
     font-size: 6vh;
+  }
+  #item-details{
+    border: solid 1px black;
+    width: 75%;
+    display:block;
+    margin: 5px auto;
+  }
+  #item-details h3{
+    font-size: 3vh;;
   }
   #edit-form div{
     padding:5px;

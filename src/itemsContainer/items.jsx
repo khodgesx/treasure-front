@@ -40,10 +40,12 @@ const Items =(props)=>{
         })
     }
     const imageChange=(e)=>{
-        setNewItem({
-            ...newItem, 
-            img: e.target.files[0]
-        })
+            setNewItem({
+                ...newItem, 
+                img: e.target.files[0]
+            })
+       
+        
     }
     const submitNew = async(e)=>{
         e.preventDefault()
