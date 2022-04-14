@@ -49,8 +49,8 @@ const SingleItemRoute = (props)=>{
                <Link id="edit-link"to={`/items/update/${item.id}`}>Edit Details</Link>
              </h1>
             <Modal show={show} onHide={toggleShow}>
-                <Modal.Header closeButton></Modal.Header>
-                <img src={item.img}></img>
+                <Modal.Header closeButton><Modal.Title>{item.title}</Modal.Title></Modal.Header>
+                <img id="modal-img"src={item.img}></img>
             </Modal>
             <div id="item-details">
                 <h3><u>Category:</u> {item.category}</h3>

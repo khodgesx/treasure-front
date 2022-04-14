@@ -74,42 +74,47 @@ nav a{
   border: dashed 1px black;
   margin: 15px auto;
   padding: 5px;
-  width: 55%;
+  width: 75%;
+  height: 125px;
 }
-/* #item-map{
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  align-items: center;
-} */
-#single-item{
+#item-map a{
+  font-size: 2.5vh;
+  text-decoration: none;
+  color:#3c9951;
+}
+
+#map-img{
+  width: 18vw;
+  margin: 5px auto;
+}
+
+/* #single-item{
   margin:15px;
   display: grid;
   gap: 20px;
   font-size: 3vh;
   width: 45%;
   border: solid 1px black;
-}
+} */
 
-#item-img{
+/* #item-img{
   width: 40vw;
   display:block;
   margin: 0 auto;
   border: solid 1px black;
-}
+} */
 #buttons{
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap:10px;
   margin: 10px;
 }
-#map-img{
-  width: 18vw;
-}
+
 #item-show{
   margin:15px auto;
   display: block;
-  font-size: 3vh;
-  width: 45%;
+  font-size: 2.5vh;
+  width: 85%;
   border: solid 1px black;
   padding:15px;
   text-align:center;
@@ -118,13 +123,17 @@ nav a{
   display: block;
   margin: 0 auto;
   border: solid 1px black;
-  height:40vh;
+  height:20vh;
 }
 #img-show{
   width:auto;
 }
+#modal-img{
+  border:solid 2px salmon;
+}
 #item-title{
   color:green;
+  font-size: 4vh;
 }
 #item-details{
   margin: 20px 0;
@@ -133,6 +142,7 @@ nav a{
   text-align: left;
   display:block;
   margin: 10px;
+  letter-spacing: 1.5px;
 }
 #edit-link{
   color:green;
@@ -193,7 +203,7 @@ nav a{
   display:flex;
   align-items: center;
   justify-content: space-between;
-  width: 50%;
+  width: 75%;
 }
 #edit-title{
   text-align: center;
@@ -207,7 +217,8 @@ nav a{
   padding: 5px;
 }
 #edit-form div{
-  padding:5px;
+  padding:13px;
+  font-size: 2vh;
 }
 #edit-form button, #submit-photo button{
   margin: 10px;
@@ -226,14 +237,13 @@ nav a{
   justify-content: space-between;
   margin:0;
 }
+
 #edit-details input{
   width: 100%;
 }
 #edit-photo{
   padding:10px;
 }
-
-
 #photo-form, #modal-header{
    border:none;
 }
@@ -288,5 +298,33 @@ nav a{
     margin: 20px auto;
     width: 50%;
     border: solid 1px black;
+  }
+  #item-map a{
+    font-size: 3.5vh;;
+  }
+  #item-map{
+    width:55%;
+    height: 250px;
+  }
+  #map-img{
+    margin: 15px;
+    border: solid 1px black;
+  }
+  #item-show{
+    font-size: 3vh;
+    width: 45%;
+  }
+  #item-show img{
+    height:40vh;
+  }
+  #item-title{
+    font-size: 6vh;
+  }
+  #edit-form div{
+    padding:5px;
+    font-size: 3vh;
+  }
+  #radio{
+    width:55%;
   }
 }

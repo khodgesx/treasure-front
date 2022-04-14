@@ -153,7 +153,7 @@ const EditItemRoute = (props)=>{
                   </form>
                   
                   <div id="photo-back-buttons">
-                    <button onClick={setShow}>Change Photo</button>
+                    <button id="change-photo" onClick={setShow}>Change Photo</button>
                     <button onClick={backToShowPage}>Back</button>
                   </div>
                   
