@@ -105,6 +105,7 @@ return(
                         
                         </h1>
                         <Link to={`/items/${item.id}`}><img id="map-img"src={item.img}></img></Link>
+                        <p>Location: {item.location}</p>
                      </div>
               </div>
             

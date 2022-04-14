@@ -1,15 +1,9 @@
-/* .App {
-  text-align: center;
-} */
-/* html{
-  height:max-content;
-} */
+
 body{
-  /* display: flex; */
   width: 100%;
 }
 #logo{
-  border: dotted 2px yellow;
+  border: dotted 2px pink;
   padding: 10px;
   text-decoration-style: none;
   margin: 10px;
@@ -38,7 +32,7 @@ nav a{
   justify-content: space-around;
   align-items: center;
   list-style-type: none;
-  border: dotted 2px yellow;
+  border: dotted 2px pink;
   padding: 10px;
   margin: 10px;  
 }
@@ -82,27 +76,15 @@ nav a{
   text-decoration: none;
   color:#3c9951;
 }
+#item-map p{
+  color:rgb(205, 136, 147);
+}
 
 #map-img{
   width: 18vw;
   margin: 5px auto;
 }
 
-/* #single-item{
-  margin:15px;
-  display: grid;
-  gap: 20px;
-  font-size: 3vh;
-  width: 45%;
-  border: solid 1px black;
-} */
-
-/* #item-img{
-  width: 40vw;
-  display:block;
-  margin: 0 auto;
-  border: solid 1px black;
-} */
 #buttons{
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -151,14 +133,12 @@ nav a{
 #delete-button{
   border: none;
   color:Red;
-  background-color: antiquewhite;
+  background-color: pink;
   padding: 2px 15px;
 }
 #delete-div{
   display: flex;
   justify-content: flex-end;
-  /* display:block;
-  margin:auto; */
 }
 #confirm{
   text-align: center;
@@ -169,7 +149,7 @@ nav a{
   width: 55%;
   display: block;
   margin: 15px auto;
-  border: dashed 2px yellow;
+  border: dashed 2px pink;
   background-color: #83df98;
 }
 #confirm-delete{
@@ -194,7 +174,7 @@ nav a{
   border: dotted 2px #56da75;
   height:6vh;
   padding: 0 20px;
-  background-color: rgb(231, 231, 73);
+  background-color: rgb(248, 205, 212);
   color:green;
   font-size: 3vh;
   font-weight:500;
@@ -322,13 +302,16 @@ nav a{
     width:55%;
     height: 300px;
   }
+  #item-map p{
+    font-size: 3vh;
+  }
   #map-img{
     margin: 15px;
     border: solid 1px black;
   }
   #item-show{
     font-size: 3vh;
-    width: 45%;
+    width: 70%;
   }
   #item-show img{
     height:40vh;
