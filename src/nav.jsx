@@ -7,7 +7,7 @@ const Nav=()=> {
   return (
     <div>
        <nav>
-           <Link to="/"><h3 id='logo'>Trashhhhhure</h3></Link>
+           <Link to="/"><h3 id='logo'>Trashhhhure</h3></Link>
            <ul className='nav-links'>
                <Link to="/about"><li className="links">About</li></Link>
                <Link to="/items"><li className="links">Treasure List</li></Link>

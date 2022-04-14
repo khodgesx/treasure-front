@@ -44,7 +44,7 @@ const SingleItemRoute = (props)=>{
     return(
         <div id="item-show">
             <h1 id="item-title">{item.title}</h1>
-            <img onClick={toggleShow}src={item.img}></img>
+            <img id="img-show" onClick={toggleShow}src={item.img}></img>
             <h1 key={`item-${item.id}`}>
                <Link id="edit-link"to={`/items/update/${item.id}`}>Edit Details</Link>
              </h1>

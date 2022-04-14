@@ -1,13 +1,20 @@
 /* .App {
   text-align: center;
 } */
-
+/* html{
+  height:max-content;
+} */
+body{
+  /* display: flex; */
+  width: 100%;
+}
 #logo{
   border: dotted 2px yellow;
   padding: 10px;
-  color:white;
   text-decoration-style: none;
   margin: 10px;
+  font-size: 3.5vh;
+  color:white;
 }
 nav{
   display: flex;
@@ -15,15 +22,18 @@ nav{
   align-items: center;
   min-height: 18vh;
   background: #56da75;
-  color:white;
 }
+
+
 nav a{
   text-decoration: none;
   color:white;
+  font-size: 2vh;
+  font-weight:800;
 }
 
 .nav-links{
-  width: 40%;
+  width: 50%;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -41,11 +51,16 @@ nav a{
   color: rgb(0, 128, 87);
 }
 #home h1{
-  margin: 25px 0;
+  margin: 25px 0 5px;
 }
-#home img{
+#home h2{
+  font-size: 2.5vh;
+  margin: 10px 0 20px;
+}
+#home-img{
   display: block;
   margin: 0 auto;
+  width: 75%;
 }
 #items-div{
   margin: 5px;
@@ -105,6 +120,9 @@ nav a{
   border: solid 1px black;
   height:40vh;
 }
+#img-show{
+  width:auto;
+}
 #item-title{
   color:green;
 }
@@ -136,10 +154,12 @@ nav a{
 #about-div{
   display: block;
   color:blue;
-  padding:20px 50px 50px;;
+  padding:20px;
   margin: 20px auto;
-  width: 50%;
+  width: 85vw;
   border: solid 1px black;
+  font-size: 3vh;
+  text-align: left;
 }
 #about-list{
   text-align: left;
@@ -239,4 +259,34 @@ nav a{
   padding: 5px 15px;
   color:red;
 
+}
+@media only screen and (min-width: 768px) {  
+  body{
+    display: block;
+  }
+  #logo{
+    font-size: 5vh;
+    margin: 30px;
+  }
+  nav{
+    justify-content: space-between;
+  }
+  nav a{
+    font-size: 3vh;
+  }
+  #home-img{
+    width: 65%;
+  }
+  #home h2{
+    font-size: 5vh;
+    margin: 15px 0 20px;
+  }
+  #about-div{
+    display: block;
+    color:blue;
+    padding:20px 50px 50px;;
+    margin: 20px auto;
+    width: 50%;
+    border: solid 1px black;
+  }
 }
