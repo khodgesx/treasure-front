@@ -129,6 +129,8 @@ nav a{
 #delete-div{
   display: flex;
   justify-content: flex-end;
+  /* display:block;
+  margin:auto; */
 }
 
 #about-div{

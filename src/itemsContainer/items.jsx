@@ -70,27 +70,6 @@ const Items =(props)=>{
         toggleShow()
  
     }
- 
-
-    // const editItem = async(idToEdit, itemToEdit)=>{
-    //     try{
-    //         const editResponse = await fetch(`http://localhost:8000/api/items/${idToEdit}`,{
-    //             method:"PUT",
-    //             body:JSON.stringify(itemToEdit),
-    //             headers:{
-    //                 "Content-Type":"application/json"
-    //             }
-    //         })
-    //         const parsedEdit = await editResponse.json()
-            
-    //         if(parsedEdit.status === 204){
-    //             const newArray = items.map(item => item.id === idToEdit ? {...item, itemToEdit} : item)
-    //             setItems(newArray)
-    //         }
-    //     }catch(err){
-    //         console.log(err)
-    //     }
-    // }
    
   
 

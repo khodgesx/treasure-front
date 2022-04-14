@@ -24,13 +24,12 @@ const SingleItemRoute = (props)=>{
     }
    
     const deleteItem = async()=>{
-        console.log('1st',id)
+       
         try{
             console.log(id)
-            const deleteResponse = await fetch(`http://localhost:8000/api/items/${id}`,{
+            const deleteResponse = await fetch(`${apiUrl}/api/items/${id}`,{
                 method:"DELETE"
             })
-            console.log('2nd',id)
                 const newList = props.items.filter((item)=>item.id !==id)
                 props.setItems(newList)
                 if(deleteResponse.status === 204){
@@ -46,6 +45,9 @@ const SingleItemRoute = (props)=>{
         <div id="item-show">
             <h1 id="item-title">{item.title}</h1>
             <img onClick={toggleShow}src={item.img}></img>
+            <h1 key={`item-${item.id}`}>
+               <Link id="edit-link"to={`/items/update/${item.id}`}>Edit Details</Link>
+             </h1>
             <Modal show={show} onHide={toggleShow}>
                 <Modal.Header closeButton></Modal.Header>
                 <img src={item.img}></img>
@@ -58,9 +60,7 @@ const SingleItemRoute = (props)=>{
                 <h3><u>Available:</u> { item.available === true ? 'Yes' :'No' }</h3>
             </div>
             <div>
-            <h1 key={`item-${item.id}`}>
-               <Link id="edit-link"to={`/items/update/${item.id}`}>Edit Details</Link>
-             </h1>
+            
              <div id="delete-div">
                 <button id="delete-button"onClick={deleteItem}>Delete</button>
              </div>
