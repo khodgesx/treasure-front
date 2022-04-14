@@ -75,7 +75,7 @@ nav a{
   margin: 15px auto;
   padding: 5px;
   width: 75%;
-  height: 125px;
+  height: 135px;
 }
 #item-map a{
   font-size: 2.5vh;
@@ -159,6 +159,22 @@ nav a{
   justify-content: flex-end;
   /* display:block;
   margin:auto; */
+}
+#confirm{
+  text-align: center;
+  font-size: 3.2vh;
+}
+#oops, #confirm-delete{
+  height:6vh;
+  width: 55%;
+  display: block;
+  margin: 15px auto;
+  border: dashed 2px yellow;
+  background-color: #83df98;
+}
+#confirm-delete{
+  background-color: rgb(243, 55, 55);
+  color:white;
 }
 
 #about-div{

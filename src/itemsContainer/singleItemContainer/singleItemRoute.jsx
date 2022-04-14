@@ -14,8 +14,12 @@ const SingleItemRoute = (props)=>{
     const [item, setItem] = useState({})
     const params = useParams()
     const id = params.id
+
     const [show, setShow] = useState(false)
     const toggleShow=()=>setShow(!show)
+
+    const [showDelete, setShowDelete] = useState(false)
+    const toggleShowDelete=()=>setShowDelete(!showDelete)
     
     const getItem = async()=>{
         const getApiResponse = await fetch(`${apiUrl}/api/items/${id}`)
@@ -62,8 +66,19 @@ const SingleItemRoute = (props)=>{
             <div>
             
              <div id="delete-div">
-                <button id="delete-button"onClick={deleteItem}>Delete</button>
-             </div>
+                <button onClick={toggleShowDelete}id="delete-button">Delete</button>
+            </div>
+                 <div id="delete-modal">
+                     <Modal  show={showDelete} onHide={toggleShowDelete}>
+                        <Modal.Header closeButton></Modal.Header>
+                        <h2 id="confirm">Are you sure you want to delete?</h2>
+                        
+                        <button id="oops"onClick={toggleShowDelete}>Oops, don't delete!</button>
+                        <button id="confirm-delete"onClick={deleteItem}>Yes, delete!</button>
+                    </Modal>
+                
+                 </div>
+        
              
     
             </div>
