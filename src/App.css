@@ -5,10 +5,10 @@ body{
 }
 #logo{
   border: dotted 2.5px pink;
-  padding: 10px;
+  padding: 20px 10px;
   text-decoration-style: none;
-  margin: 10px;
-  font-size: 3vh;
+  margin: 10px 20px;
+  font-size: 2.5vh;
   color:white;
   font-family: 'Shrikhand', cursive;
 }
@@ -30,14 +30,15 @@ nav a{
 }
 
 .nav-links{
-  width: 50%;
+  width: 40%;
   display: flex;
+  flex-direction: column;
   justify-content: space-around;
-  align-items: center;
+  align-items: flex-start;
   list-style-type: none;
   border: dotted 2.5px pink;
   padding: 10px;
-  margin: 10px;  
+  margin: 10px 19px;  
 }
 #home{
   text-align: center;
@@ -318,6 +319,12 @@ nav a{
   }
   nav a{
     font-size: 3vh;
+  }
+  .nav-links{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
   }
   #home-img{
     margin: 30px auto;
