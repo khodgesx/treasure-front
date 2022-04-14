@@ -47,6 +47,7 @@ const Items =(props)=>{
     }
     const submitNew = async(e)=>{
         e.preventDefault()
+        
         let form_data = new FormData();
         form_data.append('img', newItem.img)
         form_data.append('title', newItem.title)
@@ -56,14 +57,12 @@ const Items =(props)=>{
         form_data.append('location', newItem.location)
         form_data.append('available', newItem.available)
         let url = `${apiUrl}/api/items/`;
-        console.log(form_data)
         axios.post(url, form_data, {
             headers:{
                 'Content-Type':'multipart/form-data'
             }
         })
         .then(res=>{
-            console.log(res.data)
             const newArray = [res.data, ...props.items]
             props.setItems(newArray)
         })

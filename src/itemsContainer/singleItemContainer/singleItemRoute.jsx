@@ -30,7 +30,6 @@ const SingleItemRoute = (props)=>{
     const deleteItem = async()=>{
        
         try{
-            console.log(id)
             const deleteResponse = await fetch(`${apiUrl}/api/items/${id}`,{
                 method:"DELETE"
             })

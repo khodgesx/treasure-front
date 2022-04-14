@@ -3,7 +3,7 @@ body{
   width: 100%;
 }
 #logo{
-  border: dotted 2px pink;
+  border: dotted 2.5px pink;
   padding: 10px;
   text-decoration-style: none;
   margin: 10px;
@@ -32,7 +32,7 @@ nav a{
   justify-content: space-around;
   align-items: center;
   list-style-type: none;
-  border: dotted 2px pink;
+  border: dotted 2.5px pink;
   padding: 10px;
   margin: 10px;  
 }
@@ -159,13 +159,18 @@ nav a{
 
 #about-div{
   display: block;
-  color:blue;
+  color:rgb(33, 118, 110);
   padding:20px;
   margin: 20px auto;
   width: 85vw;
   border: solid 1px black;
   font-size: 3vh;
   text-align: left;
+}
+#about-div img{
+  display: block;
+  margin: 5px auto;
+  width: 25%;
 }
 #about-list{
   text-align: left;
@@ -288,13 +293,11 @@ nav a{
     margin: 15px 0 20px;
   }
   #about-div{
-    display: block;
-    color:blue;
     padding:20px 50px 50px;;
-    margin: 20px auto;
     width: 50%;
     border: solid 1px black;
   }
+
   #item-map a{
     font-size: 3.5vh;;
   }
