@@ -12,6 +12,7 @@ const Items =(props)=>{
         getItems();
     }, [])
     
+
     const [showing, setShowing] = useState(false)
     const toggleShow =()=>setShowing(!showing)
 
@@ -68,6 +69,16 @@ const Items =(props)=>{
         })
         .catch(err => console.log(err))
         toggleShow()
+        setNewItem(({
+            title:'',
+            category:'',
+            details:'',
+            amount:0,
+            img:'',
+            location:'',
+            available:true
+        }))
+        
  
     }
    

@@ -8,16 +8,16 @@ const NewItem = (props) =>{
             <form onSubmit={props.submitNew} encType="multipart/form">
                 <div>
                     <label htmlFor="title">Item(s): </label>
-                    <input onChange={props.inputChange} type="text" name="title" value={props.newItem.title}></input>
+                    <input onChange={props.inputChange} type="text" name="title" value={props.newItem.title} required></input>
                 </div>
                 <div>
                     <label htmlFor="category">Category: </label>
-                    <input onChange={props.inputChange} type="text" name="category" value={props.newItem.category}></input>
+                    <input onChange={props.inputChange} type="text" name="category" value={props.newItem.category} required></input>
                 </div>
                  
                <div>
                     <label htmlFor="amount">Amount: </label>
-                    <input onChange={props.inputChange} type="number" name="amount" value={props.newItem.amount}></input>
+                    <input onChange={props.inputChange} type="number" name="amount" value={props.newItem.amount} required></input>
                </div>
                
                 <div>
@@ -27,19 +27,19 @@ const NewItem = (props) =>{
                 
                 <div>
                     <label htmlFor="location">Location: </label>
-                    <input onChange={props.inputChange} type="text" name="location" value={props.newItem.location}></input>
+                    <input onChange={props.inputChange} type="text" name="location" value={props.newItem.location} required></input>
                 </div>
                 <div id="details">   
                     <label htmlFor="details">Details/Description: </label>
-                    <input onChange={props.inputChange} type="text" name="details" value={props.newItem.details}></input>
+                    <input onChange={props.inputChange} type="text" name="details" value={props.newItem.details} required></input>
                 </div>
                
                 <div id="radio">
                     <label htmlFor="available">Available </label>
-                    <input onChange={props.inputChange} type="radio" name="available" value={props.newItem.available}></input>
+                    <input onChange={props.inputChange} type="radio" name="available" value={props.newItem.available} required></input>
 
                     <label htmlFor="available">Not Available </label>
-                    <input onChange={props.inputChange} type="radio" name="available" value={!props.newItem.available}></input>
+                    <input onChange={props.inputChange} type="radio" name="available" value={!props.newItem.available} required></input>
                 </div>
 
                <button id="create-submit"  type="submit">Add Item</button>
