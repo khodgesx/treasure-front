@@ -41,8 +41,10 @@ const NewItem = (props) =>{
                     <label htmlFor="available">Not Available </label>
                     <input onChange={props.inputChange} type="radio" name="available" value={!props.newItem.available} required></input>
                 </div>
-
-               <button id="create-submit"  type="submit">Add Item</button>
+                <div id="create-submit">
+                    <button type="submit">Add Item</button>
+                </div>
+               
 
             </form>
         </div>

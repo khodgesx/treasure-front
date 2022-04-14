@@ -216,6 +216,15 @@ nav a{
 #create-form input{
   margin-left: 5px;
 }
+#create-form button{
+  color:rgb(58, 124, 49);
+  border:solid 1px pink;
+  padding: 2px 15px;
+}
+#create-submit{
+  display: flex;
+  justify-content: flex-end;
+}
 #details input{
   padding: 20px;
   width: 100%;
