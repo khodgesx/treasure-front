@@ -330,6 +330,8 @@ nav a{
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
+    width: 50%;
+    margin: 5px;
   }
   #home-img{
     margin: 30px auto;
