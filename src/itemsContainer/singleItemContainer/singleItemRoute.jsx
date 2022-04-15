@@ -47,13 +47,13 @@ const SingleItemRoute = (props)=>{
     return(
         <div id="item-show">
             <h1 id="item-title">{item.title}</h1>
-            <img id="img-show" onClick={toggleShow}src={item.img}></img>
+            <img id="img-show" onClick={toggleShow}src={item.image}></img>
             <h1 key={`item-${item.id}`}>
                <Link id="edit-link"to={`/items/update/${item.id}`}>Edit Details</Link>
              </h1>
             <Modal show={show} onHide={toggleShow}>
                 <Modal.Header closeButton><Modal.Title>{item.title}</Modal.Title></Modal.Header>
-                <img id="modal-img"src={item.img}></img>
+                <img id="modal-img"src={item.image}></img>
             </Modal>
             <div id="item-details">
                 <h3><u>Category:</u> {item.category}</h3>

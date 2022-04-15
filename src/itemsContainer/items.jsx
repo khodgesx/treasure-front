@@ -29,7 +29,7 @@ const Items =(props)=>{
         category:'',
         details:'',
         amount:0,
-        img:'',
+        image:'',
         location:'',
         available:true
     })
@@ -42,46 +42,98 @@ const Items =(props)=>{
     const imageChange=(e)=>{
             setNewItem({
                 ...newItem, 
-                img: e.target.files[0]
+                image: e.target.files[0]
             })
        
         
     }
-    const submitNew = async(e)=>{
-        e.preventDefault()
+    // const submitNew = async(e)=>{
+    //     e.preventDefault()
         
-        let form_data = new FormData();
-        form_data.append('img', newItem.img)
-        form_data.append('title', newItem.title)
-        form_data.append('category', newItem.category)
-        form_data.append('details', newItem.details)
-        form_data.append('amount', newItem.amount)
-        form_data.append('location', newItem.location)
-        form_data.append('available', newItem.available)
-        let url = `${apiUrl}/api/items/`;
-        axios.post(url, form_data, {
-            headers:{
-                'Content-Type':'multipart/form-data'
-            }
-        })
-        .then(res=>{
-            const newArray = [res.data, ...props.items]
-            props.setItems(newArray)
-        })
-        .catch(err => console.log(err))
-        toggleShow()
-        setNewItem(({
-            title:'',
-            category:'',
-            details:'',
-            amount:0,
-            img:'',
-            location:'',
-            available:true
-        }))
+    //     let form_data = new FormData();
+    //     form_data.append('img', newItem.img)
+    //     form_data.append('title', newItem.title)
+    //     form_data.append('category', newItem.category)
+    //     form_data.append('details', newItem.details)
+    //     form_data.append('amount', newItem.amount)
+    //     form_data.append('location', newItem.location)
+    //     form_data.append('available', newItem.available)
+    //     let url = `${apiUrl}/api/items/`;
+    //     axios.post(url, form_data, {
+    //         headers:{
+    //             'Content-Type':'multipart/form-data'
+    //         }
+    //     })
+    //     .then(res=>{
+    //         const newArray = [res.data, ...props.items]
+    //         props.setItems(newArray)
+    //     })
+    //     .catch(err => console.log(err))
+    //     toggleShow()
+    //     setNewItem(({
+    //         title:'',
+    //         category:'',
+    //         details:'',
+    //         amount:0,
+    //         img:'',
+    //         location:'',
+    //         available:true
+    //     }))
         
  
+    // }
+    const createNew = async(newItem) =>{
+        try {
+            if(newItem.image){
+                const data = new FormData()
+                data.append('file', newItem.image)
+                data.append('upload_preset', 'treasure')
+                console.log(newItem.image)
+                const imageUpload = await axios.post('https://api.cloudinary.com/v1_1/dmc4kghoi/image/upload', data)
+                console.log(imageUpload.data.url)
+                newItem.image = await imageUpload.data.url
+            }else{
+                newItem.image = 'https://i.imgur.com/3cHAFsx.jpg'
+            }
+            console.log(newItem)
+            let form_data = new FormData();
+            form_data.append('image', newItem.image)
+            form_data.append('title', newItem.title)
+            form_data.append('category', newItem.category)
+            form_data.append('details', newItem.details)
+            form_data.append('amount', newItem.amount)
+            form_data.append('location', newItem.location)
+            form_data.append('available', newItem.available)
+            const createResponse = await axios.post(`${apiUrl}/api/items/`, form_data,{
+                
+                headers: {
+                    'Content-Type':'multipart/form-data'
+                }
+            })
+            console.log(createResponse)
+            console.log(createResponse.data)
+            
+        } catch (err) {
+            console.log(err)
+        }
+        const newArray = [newItem, ...props.items]
+        props.setItems(newArray)
+        toggleShow()
+        setNewItem({
+                title:'',
+                category:'',
+                details:'',
+                amount:0,
+                image:'',
+                location:'',
+                available:true
+        })
     }
+    const submitNew = async(e)=>{
+        e.preventDefault()
+        createNew(newItem) 
+    }
+
    
   
 
@@ -105,7 +157,7 @@ return(
                         <Link to={`/items/${item.id}`}>{item.title} ({item.category})</Link>
                         
                         </h1>
-                        <Link to={`/items/${item.id}`}><img id="map-img"src={item.img}></img></Link>
+                        <Link to={`/items/${item.id}`}><img id="map-img"src={item.image}></img></Link>
                         <p>Location: {item.location}</p>
                      </div>
               </div>

@@ -22,7 +22,7 @@ const NewItem = (props) =>{
                
                 <div>
                     <label htmlFor="img">Photo: </label>
-                    <input onChange={props.imageChange} type="file" name="img" id="item-pic"accept="image/png, image/jpeg" placeholder='upload image'></input>
+                    <input onChange={props.imageChange} type="file" name="image" id="item-pic"accept="image/png, image/jpeg" placeholder='upload image'></input>
                 </div>
                 
                 <div>
