@@ -162,8 +162,8 @@ const EditItemRoute = (props)=>{
                           
                           <form id="photo-form"onSubmit={submitImage} encType="multipart/form">
                           <div id="edit-photo">
-                        <label htmlFor="img"> </label>
-                         <input onChange={imageChange} type="file" name="img" id="item-pic"accept="image/png, image/jpeg" placeholder='upload image'></input>
+                        <label htmlFor="image"> </label>
+                         <input onChange={imageChange} type="file" name="image" id="item-pic"accept="image/png, image/jpeg" placeholder='upload image'></input>
                     </div>
                     <div id="submit-photo">
                         <button type="submit"onClick={toggleShow}>Submit</button>
