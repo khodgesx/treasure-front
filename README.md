@@ -25,7 +25,7 @@ Why add more trash? Why spend unnecessary money? Rather, let your trash become s
 - Two git repositories hosted on Github, with a link to the releveant live sites, and frequent commits dating back to the beginning of the project. 
 
 ## Stretch Goals:
-- Image upload 
+- Image upload with Cloudinary API
 - React Router
 - CSS framework - React Bootstrap
 
