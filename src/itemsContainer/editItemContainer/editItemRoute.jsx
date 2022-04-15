@@ -26,7 +26,7 @@ const EditItemRoute = (props)=>{
                 category:'',
                 details:'',
                 amount:0, 
-                img:'',
+                image:'',
                 location:'', 
                 available:true
     })
@@ -35,7 +35,7 @@ const EditItemRoute = (props)=>{
         category: item.category,
         details: item.details,
         amount: item.amount,
-        img: item.img,
+        image: item.image,
         location: item.location,
         available: item.available
     })
@@ -55,13 +55,12 @@ const EditItemRoute = (props)=>{
     const imageChange=(e)=>{
         setEditItem({
             ...editItem, 
-            img: e.target.files[0]
+            image: e.target.files[0]
         })
     }
     const submitEdit = async(e)=>{
         e.preventDefault()
         let form_data = new FormData();
-        // form_data.append('img', editItem.img)
         form_data.append('title', editItem.title)
         form_data.append('category', editItem.category)
         form_data.append('details', editItem.details)
@@ -84,32 +83,74 @@ const EditItemRoute = (props)=>{
         .catch(err => console.log(err))
        
     }
+    // const submitImage = async(e)=>{
+    //     e.preventDefault()
+    //     let form_data = new FormData();
+    //     form_data.append('img', editItem.img)
+    //     form_data.append('title', editItem.title)
+    //     form_data.append('category', editItem.category)
+    //     form_data.append('details', editItem.details)
+    //     form_data.append('amount', editItem.amount)
+    //     form_data.append('location', editItem.location)
+    //     form_data.append('available', editItem.available)
+    //     let url = `${apiUrl}/api/items/${id}`;
+    //     axios.put(url, form_data, {
+    //         headers:{
+    //             'Content-Type':'multipart/form-data'
+    //         }
+    //     })
+        
+    //     .then(res=>{
+    //         console.log(res.data)
+    //         const edited = res.data
+    //         const newArray = props.items.map(item => item.id === id ? {...editItem, edited} : item)
+    //             props.setItems(newArray)
+    //             navigate (`/items/update/${id}`)
+    //     })
+    //     .catch(err => console.log(err))
+       
+    // }
+    const editImage = async(editItem) =>{
+        try {
+            if(editItem.image){
+                const data = new FormData()
+                data.append('file', editItem.image)
+                data.append('upload_preset', 'treasure')
+                console.log(editItem.image)
+                const imageUpload = await axios.post('https://api.cloudinary.com/v1_1/dmc4kghoi/image/upload', data)
+                console.log(imageUpload.data.url)
+                editItem.image = await imageUpload.data.url
+            }else{
+                editItem.image = 'https://i.imgur.com/3cHAFsx.jpg'
+            }
+            console.log(editItem)
+            let form_data = new FormData();
+            form_data.append('image', editItem.image)
+            form_data.append('title', editItem.title)
+            form_data.append('category', editItem.category)
+            form_data.append('details', editItem.details)
+            form_data.append('amount', editItem.amount)
+            form_data.append('location', editItem.location)
+            form_data.append('available', editItem.available)
+            const editImage = await axios.put(`${apiUrl}/api/items/${id}`, form_data,{
+                
+                headers: {
+                    'Content-Type':'multipart/form-data'
+                }
+            })
+            console.log(editImage)
+            
+        } catch (err) {
+            console.log(err)
+        }
+        const newArray = props.items.map(item => item.id === id ? {editItem} : item)
+        props.setItems(newArray)
+        navigate(`/items/update/${id}`)
+        
+    }
     const submitImage = async(e)=>{
         e.preventDefault()
-        let form_data = new FormData();
-        form_data.append('img', editItem.img)
-        form_data.append('title', editItem.title)
-        form_data.append('category', editItem.category)
-        form_data.append('details', editItem.details)
-        form_data.append('amount', editItem.amount)
-        form_data.append('location', editItem.location)
-        form_data.append('available', editItem.available)
-        let url = `${apiUrl}/api/items/${id}`;
-        axios.put(url, form_data, {
-            headers:{
-                'Content-Type':'multipart/form-data'
-            }
-        })
-        
-        .then(res=>{
-            console.log(res.data)
-            const edited = res.data
-            const newArray = props.items.map(item => item.id === id ? {...editItem, edited} : item)
-                props.setItems(newArray)
-                navigate (`/items/update/${id}`)
-        })
-        .catch(err => console.log(err))
-       
+        editImage(editItem) 
     }
   
     return(
