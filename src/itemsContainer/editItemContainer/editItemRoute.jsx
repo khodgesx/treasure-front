@@ -83,33 +83,7 @@ const EditItemRoute = (props)=>{
         .catch(err => console.log(err))
        
     }
-    // const submitImage = async(e)=>{
-    //     e.preventDefault()
-    //     let form_data = new FormData();
-    //     form_data.append('img', editItem.img)
-    //     form_data.append('title', editItem.title)
-    //     form_data.append('category', editItem.category)
-    //     form_data.append('details', editItem.details)
-    //     form_data.append('amount', editItem.amount)
-    //     form_data.append('location', editItem.location)
-    //     form_data.append('available', editItem.available)
-    //     let url = `${apiUrl}/api/items/${id}`;
-    //     axios.put(url, form_data, {
-    //         headers:{
-    //             'Content-Type':'multipart/form-data'
-    //         }
-    //     })
-        
-    //     .then(res=>{
-    //         console.log(res.data)
-    //         const edited = res.data
-    //         const newArray = props.items.map(item => item.id === id ? {...editItem, edited} : item)
-    //             props.setItems(newArray)
-    //             navigate (`/items/update/${id}`)
-    //     })
-    //     .catch(err => console.log(err))
-       
-    // }
+
     const editImage = async(editItem) =>{
         try {
             if(editItem.image){

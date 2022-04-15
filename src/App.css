@@ -144,15 +144,20 @@ nav a{
   font-size: 3vh;
   font-family: 'Righteous', cursive;
 }
-#delete-button{
+#delete-button, #back{
   border: none;
   color:Red;
   background-color: pink;
   padding: 2px 15px;
+  margin: 5px;
 }
 #delete-div{
   display: flex;
   justify-content: flex-end;
+}
+#back{
+  color:black;
+  background-color:rgb(215, 210, 210);
 }
 #confirm{
   text-align: center;

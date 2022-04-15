@@ -44,6 +44,9 @@ const SingleItemRoute = (props)=>{
         }
     }
    
+    const back=()=>{
+        navigate('/items')
+    }
     return(
         <div id="item-show">
             <h1 id="item-title">{item.title}</h1>
@@ -65,6 +68,7 @@ const SingleItemRoute = (props)=>{
             <div>
             
              <div id="delete-div">
+                 <button id= "back"onClick={back}>Back</button>
                 <button onClick={toggleShowDelete}id="delete-button">Delete</button>
             </div>
                  <div id="delete-modal">
