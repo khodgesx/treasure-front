@@ -16,13 +16,13 @@ Why add more trash? Why spend unnecessary money? Rather, let your trash become s
 
 ## Tech Stack: 
 ### Front-End: React.js
-### [Back-End ReadMe](link to backend readme): Django, Python, PostgreSQL 
+### [Back-End ReadMe](https://github.com/khodgesx/treasure-api#readme): Django, Python, PostgreSQL 
 ### [Back-End Deployment](https://treasure-trash-api.herokuapp.com/)
 
 ## MVP:
 - Django Back-End: Serve a JSON API with all CRUD operations available across your model. The Django API must be deployed online via Heroku and have at least one model.
-- React Front-End: Serve a React front-end that consumes your Django API. You should be able to perform all CRUD operations through the React app and have them execute in and persist in the Django database. THe React front-end must be deployed online, separately from your API, via Heroku.
-- Two git repositories hosted on Github, with a link to the releveant live sites, and frequent commits dating back to the beginning of the project. 
+- React Front-End: Serve a React front-end that consumes your Django API. You should be able to perform all CRUD operations through the React app and have them execute in and persist in the Django database. The React front-end must be deployed online, separately from your API, via Heroku.
+- Two git repositories hosted on Github, with a link to the relevant live sites, and frequent commits dating back to the beginning of the project. 
 
 ## Stretch Goals:
 - Image upload with Cloudinary API

@@ -112,7 +112,7 @@ const EditItemRoute = (props)=>{
                     'Content-Type':'multipart/form-data'
                 }
             })
-            console.log(editImage)
+            // console.log(editImage)
             
         } catch (err) {
             console.log(err)
